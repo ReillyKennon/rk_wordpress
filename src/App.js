@@ -21,6 +21,8 @@ class App extends Component {
         })
       })
   }
+
+  // Need to know permalinks to all posts, selected post urls
   render() {
     const posts = this.state.posts.map((post, index) => {
       return (

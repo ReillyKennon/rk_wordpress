@@ -44,6 +44,17 @@ function twentyseventeen_setup() {
 	 */
 	add_theme_support( 'title-tag' );
 
+
+
+
+
+	remove_filter( 'the_content', 'wpautop' ); // IMPORTANT!!! THIS DISABLES WP FROM GENERATING HTML WHEN IT SENDS JSON DATA!!!!!!
+
+
+
+
+
+
 	/*
 	 * Enable support for Post Thumbnails on posts and pages.
 	 *
