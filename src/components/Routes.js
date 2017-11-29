@@ -1,16 +1,17 @@
-import { compile } from 'path-to-regexp';
 import React from 'react';
 import { Switch, Route } from 'react-router-dom';
 import HomePage from './HomePage';
-import GetPosts from './GetPosts';
+import Blog from './blog/Blog';
 import About from './About';
+import ContactForm from './ContactForm';
 
 const Routes = () => (
     <main>
         <Switch>
             <Route exact path='/' component={ HomePage } />
             <Route exact path='/about' component={ About } />
-            <Route exact path='/posts' component={ GetPosts } />
+            <Route exact path='/blog' component={ Blog } />
+            <Route exact path='/contact' component={ ContactForm } />
         </Switch>
     </main>
 )

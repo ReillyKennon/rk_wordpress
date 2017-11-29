@@ -1,7 +1,5 @@
 import React, { Component } from 'react';
 
-
-
 class GetPosts extends Component {
   constructor() {
     super();
@@ -11,8 +9,7 @@ class GetPosts extends Component {
   }
 
   componentDidMount() {
-    // link to posts json data
-    const posts_url = "http://localhost:8888/rk_wordpress/wp-json/wp/v2/posts"
+    const posts_url = "http://localhost:8888/rk_wordpress/wp-json/wp/v2/posts"     // link to posts json data
     fetch(posts_url)
       .then(response => response.json()) // Parse json data
       .then(response => {
@@ -22,7 +19,6 @@ class GetPosts extends Component {
       })
   }
 
-  // Need to know permalinks to all posts, selected post urls
   render() {
     const posts = this.state.posts.map((post, index) => {
       return (
@@ -34,7 +30,6 @@ class GetPosts extends Component {
     })
     return (
       <div className="GetPosts">
-        <h1>WordPress Posts</h1>
         {posts}
       </div>
     );
