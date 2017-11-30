@@ -1,45 +1,65 @@
 
-import React from 'react'
+import React, { Component } from 'react'
+
+class ContactForm extends Component {
+  state = {
+    firstName: '',
+    lastName: '', 
+    email: ''
+  }
+
+  //Updates form fields and stores form_data in ContactForm's state
+  formChange = event => {
+    this.setState({
+      [event.target.name]: event.target.value
+    })
+  }
+
+  //Submits ContactForm's state-the form data- as a POST request to backend
+  onSubmit = form_data => {
+    form_data.preventDefault(); //Prevents page from auto-refreshing and putting form_data into url
+    console.log(this.state);
+    this.setState({
+      firstName: '',
+      lastName: '', 
+      email: ''
+    })
+  }
+
+  render() {
+    return (
+      <div className="container">
+        <h3>Contact Form Boilerplate</h3>
+
+        <form>
+          <input 
+            name="firstName" 
+            placeholder="First Name" 
+            value={this.state.firstName} 
+            onChange={ event => this.formChange(event)}
+            />
+          <input 
+            name="lastName" 
+            placeholder="Last Name" 
+            value={this.state.lastName} 
+            onChange={ event => this.formChange(event)}
+            />
+          <input 
+            name="email" 
+            placeholder="Email" 
+            value={this.state.email} 
+            onChange={ event => this.formChange(event)}
+            />
+            <button onClick={form_data => this.onSubmit(form_data)}>Submit</button> 
+        </form>
+
+        
+      </div>
+    )
+  }
 
 
-const ContactForm = () => (
-  <form className="contact-form" method="POST" action="/contact">
-    <div className="form-field">
-      <label htmlFor="name">
-        <div className="label-content">Name:</div>
-        <input type="text" name="name" required />
-      </label>
-    </div>
+}
 
-    <div className="form-field">
-      <label htmlFor="email">
-        <div className="label-content">Email:</div>
-        <input type="email" name="email" required />
-      </label>
-    </div>
-
-    <div className="form-field">
-      <label htmlFor="message">
-        <div className="label-content">Message:</div>
-        <textarea className="stretch" name="message" rows="5" required />
-      </label>
-    </div>
-
-    <button type="submit">Send</button>
-
-    <div>
-      { window.location.hash === '#success' &&
-        <div id="success">
-          <p>Your message has been sent!</p>
-        </div>
-      }
-      { window.location.hash === '#error' &&
-        <div id="error">
-          <p>An error occured while submitting the form.</p>
-        </div>
-      }
-    </div>
-  </form>
-)
 
 export default ContactForm
