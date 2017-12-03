@@ -9,7 +9,7 @@ class GetPosts extends Component {
   }
 
   componentDidMount() {
-    const posts_url = "http://localhost:8888/rk_wordpress/wp-json/wp/v2/posts"     // link to posts json data
+    const posts_url = "http://130.211.233.186/wp-json/wp/v2/posts"     // link to posts json data
     fetch(posts_url)
       .then(response => response.json()) // Parse json data
       .then(response => {

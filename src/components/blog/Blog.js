@@ -12,7 +12,7 @@ class Blog extends Component {
 
     //After component mounts it makes a GET request to Wordpress SQL database to grab the blog posts
     componentDidMount() {
-        const posts_url = "http://localhost:8888/rk_wordpress/wp-json/wp/v2/posts" // link to wp json data
+        const posts_url = "http://130.211.233.186/wp-json/wp/v2/posts" // link to wp json data
         fetch(posts_url)
           .then(response => response.json()) // Parse json data
           .then(response => {
